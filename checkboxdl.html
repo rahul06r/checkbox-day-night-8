@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Dark and Light</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        visibility: hidden;
+        display: none;
+    }
+    
+    .check {
+        position: relative;
+        display: block;
+        width: 80px;
+        height: 40px;
+        background: #000000;
+        cursor: pointer;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: ease-in .5s;
+    }
+    
+    input[type="checkbox"]:checked~.check {
+        background: #ffffff;
+        box-shadow: 0 0 0 1200px #000000;
+    }
+    
+    .check::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        background: #ffffff;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        transition: .5s;
+    }
+    
+    input[type="checkbox"]:checked~.check::before {
+        transform: translateX(-50px);
+    }
+    
+    .check::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: #000000;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        transition: .5s;
+        transform: translateX(50px);
+    }
+    
+    input[type="checkbox"]:checked~.check::after {
+        transform: translateX(0);
+    }
+</style>
+
+<body>
+    <label>
+        <input type="checkbox" name="" id="">
+        <span class="check"></span>
+    </label>
+
+</body>
+
+</html>
